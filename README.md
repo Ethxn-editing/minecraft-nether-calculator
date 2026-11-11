@@ -1,34 +1,17 @@
-\# Minecraft Nether Portal Calculator 🟩🧱
+# Minecraft Nether Portal Calculator 🟩🧱
 
+A handy Python script to precisely calculate coordinate conversions between the Overworld and the Nether in Minecraft.
 
+## What is it for?
+In Minecraft, moving 1 block in the Nether equals traveling 8 blocks in the Overworld. This tool eliminates manual calculations to ensure your portals link up correctly!
 
-Un pratico script in Python per calcolare con precisione le coordinate dei portali del Nether e dell'Overworld in Minecraft.
+## Requirements
+- Python 3.x installed.
 
+## How to use it
 
-
-\## A cosa serve?
-
-Nel gioco, compiere 1 blocco nel Nether equivale a percorrere 8 blocchi nel mondo normale (Overworld). Questo tool elimina i calcoli a mente per evitare che i tuoi portali si colleghino nel punto sbagliato!
-
-
-
-\## Requisiti
-
-\- Python 3.x installato.
-
-
-
-\## Come usarlo
-
-
-
-1\. Clona questo repository o scarica il file `nether\_calculator.py`.
-
-2\. Apri il terminale/prompt dei comandi nella cartella del file ed esegui:
-
-
+1. Clone this repository or download the `nether_calculator.py` file.
+2. Open your terminal or command prompt in the folder containing the file and run:
 
 ```bash
-
-python nether\_calculator.py
-
+python nether_calculator.py
