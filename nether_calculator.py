@@ -1,17 +1,21 @@
 """Minecraft Nether Portal Calculator.
 
-Un semplice tool per convertire le coordinate tra Overworld e Nether.
+A simple tool to convert coordinates between the Overworld and the Nether.
 """
 
 
-def overworld_to_nether(x: float, z: float) -> tuple[int, int]:
-    """Converte le coordinate dall'Overworld al Nether."""
-    return round(x / 8), round(z / 8)
+def overworld_to_nether(overworld_x: float, overworld_z: float) -> tuple[int, int]:
+    """Converts coordinates from Overworld to Nether."""
+    nether_x = round(overworld_x / 8)
+    nether_z = round(overworld_z / 8)
+    return nether_x, nether_z
 
 
-def nether_to_overworld(x: float, z: float) -> tuple[int, int]:
-    """Converte le coordinate dal Nether all'Overworld."""
-    return round(x * 8), round(z * 8)
+def nether_to_overworld(nether_x: float, nether_z: float) -> tuple[int, int]:
+    """Converts coordinates from Nether to Overworld."""
+    overworld_x = round(nether_x * 8)
+    overworld_z = round(nether_z * 8)
+    return overworld_x, overworld_z
 
 
 def main():
@@ -19,38 +23,32 @@ def main():
     print("   MINECRAFT NETHER PORTAL TOOL     ")
     print("====================================\n")
 
-    print("Scegli il tipo di conversione:")
-    print("1. Da Overworld a Nether")
-    print("2. Da Nether a Overworld")
+    print("Choose conversion type:")
+    print("1. Overworld to Nether")
+    print("2. Nether to Overworld")
 
-    scelta = input("\nInserisci 1 o 2: ").strip()
+    choice = input("\nEnter 1 or 2: ").strip()
 
-    if scelta not in ["1", "2"]:
-        print("Scelta non valida! Riavvia il programma.")
+    if choice not in ["1", "2"]:
+        print("Invalid choice! Please restart the program.")
         return
 
     try:
-        coord_x = float(input("Inserisci la coordinata X: "))
-        coord_z = float(input("Inserisci la coordinata Z: "))
-        coord_y = input(
-            "Inserisci l'altezza Y (opzionale, premi Invio per saltare): "
-        )
+        coord_x = float(input("Enter X coordinate: "))
+        coord_z = float(input("Enter Z coordinate: "))
+        coord_y = input("Enter Y height (optional, press Enter to skip): ").strip()
 
-        y_str = f", Y={coord_y}" if coord_y.strip() else ""
+        y_str = f", Y={coord_y}" if coord_y else ""
 
-        if scelta == "1":
+        if choice == "1":
             nx, nz = overworld_to_nether(coord_x, coord_z)
-            print(
-                f"\n[RISULTATO] Posiziona il portale nel NETHER a: X={nx}{y_str}, Z={nz}"
-            )
+            print(f"\n[RESULT] Place portal in the NETHER at: X={nx}{y_str}, Z={nz}")
         else:
             ox, oz = nether_to_overworld(coord_x, coord_z)
-            print(
-                f"\n[RISULTATO] Posiziona il portale nell'OVERWORLD a: X={ox}{y_str}, Z={oz}"
-            )
+            print(f"\n[RESULT] Place portal in the OVERWORLD at: X={ox}{y_str}, Z={oz}")
 
     except ValueError:
-        print("\nErrore: inserisci solo numeri validi per le coordinate!")
+        print("\nError: Please enter only valid numbers for coordinates!")
 
 
 if __name__ == "__main__":
